@@ -1,1 +1,2 @@
-# gh-template-tf-workspaces
+# tf-ws-k8s-infra
+- used for building kubernetes clusters
