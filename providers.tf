@@ -5,5 +5,9 @@ terraform {
       source  = "hashicorp/azurerm"
       version = ">=2.0"
     }
+    kind = {
+      source  = "justenwalker/kind"
+      version = ">=0.17.0"
+    }
   }
 }
