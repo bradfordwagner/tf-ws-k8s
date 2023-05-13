@@ -1,6 +1,3 @@
-# terraform {
-# }
-
 provider "kind" {
   kubeconfig = pathexpand("~/.kube/${var.input}")
 }
