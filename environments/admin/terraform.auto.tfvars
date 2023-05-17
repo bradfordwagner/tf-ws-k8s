@@ -1,1 +1,1 @@
-input = "admin"
+cluster_name = "admin"
