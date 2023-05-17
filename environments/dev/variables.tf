@@ -1,1 +1,1 @@
-../../variables.tf
+../../kind_variables.tf
