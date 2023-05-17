@@ -1,1 +1,1 @@
-input = "dev"
+cluster_name = "dev"

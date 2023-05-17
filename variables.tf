@@ -1,3 +1,3 @@
-variable "input" {
+variable "cluster_name" {
   type = string
 }
