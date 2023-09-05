@@ -1,0 +1,51 @@
+# https://taskfile.dev
+
+version: '3'
+
+includes:
+  tf: ~/.taskfiles/tasks/terraform.yml
+  echo: ~/.taskfiles/tasks/echo.yml
+
+anchors:
+  - &vars
+    vars:
+      tf_action: '{{ .tf_action }}'
+      workspace_name: "{{ .workspace_name }}"
+      workspace_path: "environments/{{ .workspace_name }}"
+      backend: 'false'
+  - &tf_action
+    internal: true
+    cmds:
+      - task: tf:action
+        <<: *vars
+
+tasks:
+  all_apply:
+    cmds:
+      - task: admin_apply
+      - task: cicd_apply
+  all_destroy:
+    cmds:
+      - task: admin_destroy
+      - task: cicd_destroy
+
+  admin_apply:
+    vars:
+      tf_action: apply
+      workspace_name: admin
+    <<: *tf_action
+  admin_destroy:
+    vars:
+      tf_action: destroy
+      workspace_name: admin
+    <<: *tf_action
+  cicd_apply:
+    vars:
+      tf_action: apply
+      workspace_name: cicd
+    <<: *tf_action
+  cicd_destroy:
+    vars:
+      tf_action: destroy
+      workspace_name: cicd
+    <<: *tf_action
